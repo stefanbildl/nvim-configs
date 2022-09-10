@@ -15,11 +15,17 @@ call plug#begin("~/.vim/plugged")
   Plug 'L3MON4D3/LuaSnip'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'rcarriga/nvim-dap-ui'
+  Plug 'leoluz/nvim-dap-go'
+
   Plug 'hrsh7th/cmp-path'
   Plug 'L3MON4D3/LuaSnip'
   Plug 'saadparwaiz1/cmp_luasnip'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-cmdline'
+
   Plug 'hrsh7th/nvim-cmp'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
@@ -55,7 +61,7 @@ filetype plugin indent on
 " Go syntax highlighting
 let g:go_highlight_fields = 1 
 let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
+let g:go_highlight_function_calls = 1 
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 1
 
@@ -87,6 +93,9 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 imap jj <ESC>
 
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+
 
 
 " change dir on " cd"
@@ -98,11 +107,10 @@ nnoremap <BS> :Ex<CR>
 
 let g:netrw_banner = 0
 
-" LSP
 lua require('bildls/lsp')
 lua require('bildls/color')
 lua require('bildls/telescope')
-
+lua require('bildls/dap')
 
 " Enable syntax highlighting
 lua <<EOF
