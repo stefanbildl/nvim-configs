@@ -27,3 +27,5 @@ vim.api.nvim_set_keymap('n', '<leader>', ":lua require'dap'.step_out()<CR>", {si
 
 
 require('dap-go').setup()
+
+
