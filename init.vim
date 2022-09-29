@@ -5,6 +5,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'scrooloose/syntastic'
   Plug 'mattn/emmet-vim'
   Plug 'fatih/vim-go'
+  Plug 'folke/tokyonight.nvim'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' } 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
   Plug 'neovim/nvim-lspconfig' 
@@ -129,3 +130,5 @@ augroup go_autocmd
 augroup END
 
 autocmd FileType rust nnoremap <leader>r  <cmd>:w<cr><cmd>!cargo run<cr>
+colorscheme tokyonight
+
