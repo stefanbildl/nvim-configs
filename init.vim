@@ -11,6 +11,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'scrooloose/syntastic'
   Plug 'mattn/emmet-vim'
   Plug 'fatih/vim-go'
+  Plug 'folke/tokyonight.nvim'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' } 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
   Plug 'neovim/nvim-lspconfig' 
@@ -144,14 +145,10 @@ augroup go_autocmd
 augroup END
 
 
-
 nnoremap <leader>m :lua require("harpoon.mark").add_file()<CR>
 nnoremap <leader>h :lua require("harpoon.ui").toggle_quick_menu()<CR>
 
 lua require("telescope").load_extension('harpoon')
 
 autocmd FileType rust nnoremap <leader>r  <cmd>:w<cr><cmd>!cargo run<cr>
-
-
-
 
