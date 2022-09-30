@@ -2,6 +2,7 @@ call plug#begin("~/.vim/plugged")
   " Plugin Section 
   Plug 'tpope/vim-surround'
   Plug 'windwp/nvim-autopairs'
+  Plug 'vimwiki/vimwiki'
 
   " Best colorscheme = nordfox
   Plug 'EdenEast/nightfox.nvim' 
@@ -22,6 +23,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'mfussenegger/nvim-dap'
   Plug 'rcarriga/nvim-dap-ui'
   Plug 'leoluz/nvim-dap-go'
+  Plug 'voldikss/vim-floaterm'
 
   Plug 'hrsh7th/cmp-path'
   Plug 'L3MON4D3/LuaSnip'
@@ -42,6 +44,12 @@ syntax enable
 set number
 
 let mapleader = " "
+
+
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<F12>'
 
 nnoremap <leader>tn :tabnew<CR>
 set completeopt=menu,menuone,noselect
@@ -146,10 +154,4 @@ autocmd FileType rust nnoremap <leader>r  <cmd>:w<cr><cmd>!cargo run<cr>
 
 
 
-" Checks if there is a file open after Vim starts up,
-" and if not, open the current working directory in Netrw.
-augroup InitNetrw
-  autocmd!
-  autocmd VimEnter * if expand("%") == "" | edit . | endif
-augroup END
 
