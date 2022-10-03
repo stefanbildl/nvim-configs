@@ -26,4 +26,63 @@ vim.api.nvim_set_keymap('n', '<leader>', ":lua require'dap'.step_out()<CR>", {si
 
 
 
+dap.adapters.codelldb = {
+  type = 'server',
+  port = "${port}",
+  executable = {
+    -- CHANGE THIS to your path!
+    command = '/opt/codelldb/extension/adapter/codelldb',
+    args = {"--port", "${port}"},
+
+    -- On windows you may have to uncomment this:
+    -- detached = false,
+  }
+}
+
+
+
+-- C / C++
+dap.configurations.cpp = {
+  {
+    name = "Launch file",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = true,
+  },
+}
+
+
+dap.configurations.c = dap.configurations.cpp
+
+
+
+
+
 require('dap-go').setup()
+
+
+
+local rt = require('rust-tools');
+
+local opts = {
+  dap = {
+    adapter = {
+      name = 'codelldb',
+      type = 'server',
+      port = "${port}",
+      executable = {
+        -- CHANGE THIS to your path!
+        command = '/opt/codelldb/extension/adapter/codelldb',
+        args = {"--port", "${port}"},
+
+        -- On windows you may have to uncomment this:
+        -- detached = false,
+      }
+    },
+  },
+}
+rt.setup(opts)

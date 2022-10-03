@@ -15,21 +15,24 @@ call plug#begin("~/.vim/plugged")
   Plug 'L3MON4D3/LuaSnip'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
-
+  Plug 'simrat39/rust-tools.nvim'
   Plug 'mfussenegger/nvim-dap'
   Plug 'rcarriga/nvim-dap-ui'
   Plug 'leoluz/nvim-dap-go'
-
   Plug 'hrsh7th/cmp-path'
+  Plug 'voldikss/vim-floaterm'
   Plug 'L3MON4D3/LuaSnip'
-  Plug 'saadparwaiz1/cmp_luasnip'
+
+  Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-cmdline'
 
-  Plug 'hrsh7th/nvim-cmp'
+  Plug 'saadparwaiz1/cmp_luasnip'
+
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 call plug#end()
+
 if (has("termguicolors"))
  set termguicolors
 endif
@@ -39,6 +42,7 @@ set number
 let mapleader = " "
 
 nnoremap <leader>tn :tabnew<CR>
+
 set completeopt=menu,menuone,noselect
 
 
@@ -96,6 +100,7 @@ imap jj <ESC>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 
+nnoremap <C-t> :FloatermToggle<CR>
 
 
 " change dir on " cd"
@@ -103,7 +108,7 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Leader s for instant sex
 nnoremap <leader>s :Sex<CR>
-nnoremap <BS> :Ex<CR>
+nnoremap <leader>x :Ex<CR>
 
 let g:netrw_banner = 0
 
@@ -112,7 +117,7 @@ lua require('bildls/color')
 lua require('bildls/telescope')
 lua require('bildls/dap')
 
-" Enable syntax highlighting
+" Enable syntax highlighting 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -128,4 +133,5 @@ augroup go_autocmd
   autocmd BufWritePre *.go GoFmt
 augroup END
 
-autocmd FileType rust nnoremap <leader>r  <cmd>:w<cr><cmd>!cargo run<cr>
+autocmd FileType rust nnoremap <leader>r <cmd>!cargo run<cr>
+
