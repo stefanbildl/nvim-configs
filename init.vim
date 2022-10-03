@@ -1,24 +1,36 @@
 call plug#begin("~/.vim/plugged")
-  " Plugin Section Plug 'tpope/vim-fugitive'
+  " Plugin Section 
   Plug 'tpope/vim-surround'
+  Plug 'windwp/nvim-autopairs'
+  Plug 'vimwiki/vimwiki'
+
+  " Best colorscheme = nordfox
+  Plug 'EdenEast/nightfox.nvim' 
+
   Plug 'pedro757/emmet'
   Plug 'scrooloose/syntastic'
   Plug 'mattn/emmet-vim'
   Plug 'fatih/vim-go'
+  Plug 'folke/tokyonight.nvim'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' } 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
   Plug 'neovim/nvim-lspconfig' 
-  Plug 'catppuccin/nvim', {'as': 'catppuccin' }
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'jparise/vim-graphql'
-  Plug 'morhetz/gruvbox'
   Plug 'L3MON4D3/LuaSnip'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+
   Plug 'simrat39/rust-tools.nvim'
   Plug 'mfussenegger/nvim-dap'
   Plug 'rcarriga/nvim-dap-ui'
   Plug 'leoluz/nvim-dap-go'
+  Plug 'tpope/vim-fugitive'
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'rcarriga/nvim-dap-ui'
+  Plug 'leoluz/nvim-dap-go'
+  Plug 'voldikss/vim-floaterm'
+
   Plug 'hrsh7th/cmp-path'
   Plug 'voldikss/vim-floaterm'
   Plug 'L3MON4D3/LuaSnip'
@@ -30,7 +42,9 @@ call plug#begin("~/.vim/plugged")
   Plug 'saadparwaiz1/cmp_luasnip'
 
   Plug 'nvim-lua/plenary.nvim'
+  Plug 'ThePrimeagen/harpoon'
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
 call plug#end()
 
 if (has("termguicolors"))
@@ -40,6 +54,12 @@ syntax enable
 set number
 
 let mapleader = " "
+
+
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<F12>'
 
 nnoremap <leader>tn :tabnew<CR>
 
@@ -127,6 +147,8 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
+
+require("nvim-autopairs").setup {}
 EOF
 
 augroup go_autocmd
@@ -134,4 +156,11 @@ augroup go_autocmd
 augroup END
 
 autocmd FileType rust nnoremap <leader>r <cmd>!cargo run<cr>
+
+nnoremap <leader>m :lua require("harpoon.mark").add_file()<CR>
+nnoremap <leader>h :lua require("harpoon.ui").toggle_quick_menu()<CR>
+
+lua require("telescope").load_extension('harpoon')
+
+autocmd FileType rust nnoremap <leader>r  <cmd>:w<cr><cmd>!cargo run<cr>
 
