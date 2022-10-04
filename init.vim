@@ -150,5 +150,7 @@ nnoremap <leader>h :lua require("harpoon.ui").toggle_quick_menu()<CR>
 
 lua require("telescope").load_extension('harpoon')
 
+nnoremap <leader>x :Ex<CR>
+
 autocmd FileType rust nnoremap <leader>r  <cmd>:w<cr><cmd>!cargo run<cr>
 
