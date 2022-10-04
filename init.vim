@@ -56,6 +56,7 @@ nnoremap <leader>tn :tabnew<CR>
 set completeopt=menu,menuone,noselect
 
 
+
 set updatetime=50
 set noswapfile
 set tabstop=2
