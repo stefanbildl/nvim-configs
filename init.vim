@@ -66,6 +66,7 @@ nnoremap <leader>tn :tabnew<CR>
 set completeopt=menu,menuone,noselect
 
 
+
 set updatetime=50
 set noswapfile
 set tabstop=2
@@ -161,6 +162,8 @@ nnoremap <leader>m :lua require("harpoon.mark").add_file()<CR>
 nnoremap <leader>h :lua require("harpoon.ui").toggle_quick_menu()<CR>
 
 lua require("telescope").load_extension('harpoon')
+
+nnoremap <leader>x :Ex<CR>
 
 autocmd FileType rust nnoremap <leader>r  <cmd>:w<cr><cmd>!cargo run<cr>
 
