@@ -1,7 +1,6 @@
 call plug#begin("~/.vim/plugged")
   " Plugin Section 
   Plug 'tpope/vim-surround'
-  Plug 'windwp/nvim-autopairs'
   Plug 'vimwiki/vimwiki'
 
   " Best colorscheme = nordfox
@@ -151,8 +150,6 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
-
-require("nvim-autopairs").setup {}
 EOF
 
 augroup go_autocmd
