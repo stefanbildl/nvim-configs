@@ -7,6 +7,9 @@ call plug#begin("~/.vim/plugged")
   " Best colorscheme = nordfox
   Plug 'EdenEast/nightfox.nvim' 
 
+  Plug 'williamboman/mason.nvim'
+  Plug 'williamboman/mason-lspconfig.nvim'
+
   Plug 'pedro757/emmet'
   Plug 'scrooloose/syntastic'
   Plug 'mattn/emmet-vim'
@@ -14,8 +17,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'folke/tokyonight.nvim'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' } 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
-  Plug 'neovim/nvim-lspconfig' 
-  Plug 'williamboman/nvim-lsp-installer'
+  " Plug 'williamboman/nvim-lsp-installer'
   Plug 'jparise/vim-graphql'
   Plug 'L3MON4D3/LuaSnip'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -32,6 +34,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'voldikss/vim-floaterm'
 
   Plug 'hrsh7th/cmp-path'
+  Plug 'neovim/nvim-lspconfig'
   Plug 'voldikss/vim-floaterm'
   Plug 'L3MON4D3/LuaSnip'
 
