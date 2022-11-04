@@ -3,11 +3,10 @@ call plug#begin("~/.vim/plugged")
   Plug 'tpope/vim-surround'
   Plug 'vimwiki/vimwiki'
 
-  " Best colorscheme = nordfox
-  Plug 'EdenEast/nightfox.nvim' 
 
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
+  Plug 'sainnhe/everforest'
 
   Plug 'pedro757/emmet'
   Plug 'scrooloose/syntastic'
@@ -67,17 +66,16 @@ nnoremap <leader>tn :tabnew<CR>
 
 set completeopt=menu,menuone,noselect
 
+set expandtab
+set tabstop=4      " Optional, if you want files with tabs to look the same too.
+set shiftwidth=4
+set softtabstop=-1 " Use value of shiftwidth
+set smarttab       " Always use shiftwidth
 
 
 set updatetime=50
 set noswapfile
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
 set relativenumber 
-set smartindent
-set autoindent
 set mouse=a
 set nowrap
 set nohlsearch
@@ -166,4 +164,6 @@ lua require("telescope").load_extension('harpoon')
 nnoremap <leader>x :Ex<CR>
 
 autocmd FileType rust nnoremap <leader>r  <cmd>:w<cr><cmd>!cargo run<cr>
+
+let g:netrw_altv=1
 
